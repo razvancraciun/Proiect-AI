@@ -1,4 +1,4 @@
-# AdNote Manager ☤
+# AdNote Manager
 
 An online platform for managing adnotated resources. Search documents based on content and structure.
 
