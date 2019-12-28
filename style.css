@@ -20,6 +20,34 @@ aside {
     border-right: 1px solid rgb(68,68,68);
 }
 
+main {
+    display: flex;
+    background: radial-gradient(ellipse at center, rgba(171,171,171,1) 0%, rgba(74,74,74,1) 100%);
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.result {
+    width: 200px;
+    height: 50px;
+    background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(215,215,215,1) 90%, rgba(255,255,255,1) 100%);;
+    border: solid 2px;
+    background-clip: padding-box;
+    border-image: url("img/search-border.png") 2 stretch;
+    margin: 100px;
+}
+
+.result p {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
 footer {
     border-top: 1px solid rgb(68,68,68);
     background-color: lightgreen;
