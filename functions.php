@@ -6,9 +6,9 @@ function documentContainsSpecifiedTag($filename, $tag) {
 
 	$elements = $document->getElementsByTagName($tag);
 	if( $elements->length > 0 ) {
-		return 1;
+		return true;
 	}
-	return 0;
+	return false;
 }
 
 function documentContainsWord1UnderWord2($filename, $word1, $word2) {
@@ -17,11 +17,13 @@ function documentContainsWord1UnderWord2($filename, $word1, $word2) {
 
 	$elements = $document->getElementsByTagName($word2);
 	foreach ($elements as $element) {
-		if( strpos($element->nodeValue, $word1) ) {
-			return 1;
+		foreach($element->childNodes as $node) {
+			if(strcmp($node->nodeName, $word1) == 0) {
+				return true;
+			}
 		}
 	}
-	return 0;
+	return false;
 }
 
 function getXMLTreeDepth($filename) {
@@ -35,10 +37,7 @@ function getXMLTreeDepth($filename) {
 	    $nodeDepth = count($xpath) - 1;
 	    $treeDepth = max($treeDepth, $nodeDepth);
 	}
-	if( $treeDepth > 5) {
-		return 1;
-	}
-	return 0;
+	return $treeDepth;
 }
 
 function documentHasExactlyNElements($filename, $n) {
@@ -48,10 +47,10 @@ function documentHasExactlyNElements($filename, $n) {
 	$elements = $document->getElementsByTagName('*');
 	$numbersOfElements = $elements->length;
 	if($numbersOfElements == $n) {
-		return 1;
+		return true;
 	}
 	else {
-		return 0;
+		return false;
 	}
 }
 

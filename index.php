@@ -1,126 +1,58 @@
 <!DOCTYPE html>
+<html lang="en">
+<?php require_once('search.php'); ?>
+<head>
+    <title>AdNote</title>
+    <meta charset="utf-8">
+    <link href="reset.css" type="text/css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"> 
+    <link href="style.css" type="text/css" rel="stylesheet">
+</head>
 
-<?php
-    
-    
-    function documente_in_functie_de_tag($tag)
-    {
-        /*
-        $array = functie_jmechera();
-        */
-        $array = array(
-         "bar",
-         "foo",
-        );
-        $i = 0;
-        $n = count($array);
-        for ($i = 0; $i < $n; $i++) {
-            echo "<tr><td>".$array[$i].'</td></tr>';
-        } 
-    }
-
-    function documente_cu_proiect_sub_word()
-    {
-        /*
-        $array = functie_jmechera();
-        */
-        $array = array(
-         "bar2",
-         "foo2",
-        );
-        $n = count($array);
-        for ($i = 0; $i < $n; $i++) {
-            echo "<tr><td>".$array[$i].'</td></tr>';
-        } 
-    }
-
-    function documente_cu_n_elemente($nul)
-    {
-        /*
-        $array = functie_jmechera();
-        */
-        $array = array(
-         "bar1",
-         "foo1",
-        );
-        $n = count($array);
-        for ($i = 0; $i < $n; $i++) {
-            echo "<tr><td>".$array[$i].'</td></tr>';
-        } 
-    }
-
-    function documente_cu_adancime()
-    {
-        /*
-        $array = functie_jmechera();
-        */
-        $array = array(
-         "bar3",
-         "foo3",
-        );
-        $n = count($array);
-        for ($i = 0; $i < $n; $i++) {
-            echo "<tr><td>".$array[$i].'</td></tr>';
-        } 
-    }
-    
-    function flow(){
-        
-        if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['DocumenteTag']))
-        {
-            documente_in_functie_de_tag($_POST['tag']);
-        }
-        
-        if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['ProiectSubWord']))
-        {
-            documente_cu_proiect_sub_word();
-        }
-        
-        if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['NElemente']))
-        {
-            documente_cu_n_elemente($_POST['nul']);
-        }
-        
-        if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['Adancime']))
-        {
-            documente_cu_adancime();
-        }
-        
-        
-    }
-
-
-
-?>
-<html>
 <body>
-    
-    <form action="index.php" method="post">
-        <p>Tag: <input type="text" name="tag" /></p>
-        <input type="submit" name="DocumenteTag" value="Documente Tag" />
-    </form>
-    
-    <form action="index.php" method="post">
-        <input type="submit" name="ProiectSubWord" value="Proiect sub Word" />
-    </form>
-    
-    <form action="index.php" method="post">
-        <p>N: <input type="text" name="nul" /></p>
-        <input type="submit" name="NElemente" value="N elemente" />
-    </form>
-    
-    <form action="index.php" method="post">
-        <input type="submit" name="Adancime" value="Adancime" />
-    </form>
-    
-    
-    
-    <table style="width:100%">
-        <tr><td>Nume</td></tr>
+    <aside>
+        <form id="search-by-tag" method="GET" action="index.php">
+            <div class="search-option">
+                <input type="checkbox" id="f1" name="f1">
+                <label for="f1" class="klaus">Search by tag</label>
+                <div class=sep></div>
+                <input type="text" placeholder=" <tag>" name="tag">
+            </div>
+            <div class="search-option">
+                <input type="checkbox" id="f2" name="f2">
+                <label for="f2" class="klaus">Search by inner tag</label>
+                <div class=sep></div>
+                <input type="text" placeholder=" <parent>" name="parent">
+                <input type="text" placeholder=" <child>" name="child">
+            </div>
+            <div class="search-option">
+                <input type="checkbox" id="f3" name="f3">
+                <label for="f3" class="klaus">Search by element count</label>
+                <div class=sep></div>
+                <input type="number" min="1" max="1000" value="1" name="count">
+            </div>
+            <div class="search-option">
+                <input type="checkbox" id="f4" name="f4">
+                <label for="f4" class="klaus">Search by document depth</label>
+                <div class=sep></div>
+                <input type="number" min="1" value="1" name="depth">
+            </div>
+            <input type="submit" value="Search">
+        </form>
+    </aside>
+    <main>
         <?php
-            flow();
+            echo search();
         ?>
-    </table>
-
+        <!-- Template
+        <div class="result">
+            <p>[file name goes here]</p>
+        </div> 
+        -->
+    </main>
+    <footer>
+        <p>© AdNote 2019</p>
+    </footer>
 </body>
+
 </html>
