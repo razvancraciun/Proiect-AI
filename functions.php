@@ -40,18 +40,26 @@ function getXMLTreeDepth($filename) {
 	return $treeDepth;
 }
 
-function documentHasExactlyNElements($filename, $n) {
+function documentHasNElements($filename, $n, $op) {
 	$document = new DomDocument;	
 	$document->load($filename);
 
 	$elements = $document->getElementsByTagName('*');
 	$numbersOfElements = $elements->length;
-	if($numbersOfElements == $n) {
-		return true;
+	return compare($numbersOfElements, $n, $op);
+}
+
+function compare($lhs, $rhs, $op) {
+	if($op == 'lt') {
+		return $lhs < $rhs;
+	} 
+	if($op == 'eq') {
+		return $lhs == $rhs;
 	}
-	else {
-		return false;
+	if($op == 'gt') {
+		return $lhs > $rhs;
 	}
+	return false;
 }
 
 ?>

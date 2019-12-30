@@ -17,7 +17,7 @@ function search() {
 			if(isset($_GET['f1']) && $_GET['f1']) {
                 $tag = $_GET['tag'];
                 if(documentContainsSpecifiedTag($path, $tag)) {
-                    $result .= ' <div class="result"> <p>'.$filename.'</p> </div> ';
+                    $resultFilenames[] = $filename;
                 }
             }
 
@@ -25,25 +25,33 @@ function search() {
                 $parent = $_GET['parent'];
                 $child = $_GET['child'];
                 if(documentContainsWord1UnderWord2($path, $child, $parent)) {
-                    $result .= ' <div class="result"> <p>'.$filename.'</p> </div> ';
+                    $resultFilenames[] = $filename;
                 }
             }
 
             if(isset($_GET['f3']) && $_GET['f3']) {
-                $count = $_GET['count'];
-                if(documentHasExactlyNElements($path, $count)) {
-                    $result .= ' <div class="result"> <p>'.$filename.'</p> </div> ';
+                $n = $_GET['count'];
+                $op = $_GET['sorting3'];
+                if(documentHasNElements($path, $n, $op)) {
+                    $resultFilenames[] = $filename;
                 }
             }
 
             if(isset($_GET['f4']) && $_GET['f4']) {
                 $depth = $_GET['depth'];
-                if(getXMLTreeDepth($path) == $depth) {
-                    $result .= ' <div class="result"> <p>'.$filename.'</p> </div> ';
+                $op = $_GET['sorting4'];
+                
+                if(compare(getXMLTreeDepth($path), $depth, $op)) {
+                    $resultFilenames[] = $filename;
                 }
             }
 		}
-	}
+    }
+    
+    $resultFilenames = array_unique($resultFilenames);
+    foreach($resultFilenames as $filename) {
+        $result .= ' <div class="result"> <p>'.$filename.'</p> </div> ';
+    }
     
     return $result;
 }

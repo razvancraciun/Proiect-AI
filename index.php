@@ -73,24 +73,24 @@
                         echo '<input type="number" min="1" max="1000" value="1" name="count">';
                     }
                 
-                    if(isset($_GET['sorting'])){
-                        if($_GET['sorting'] == 'lt1')
-                            echo '<input type="radio" name="sorting" value="lt1" checked> &lt <br>
-                            <input type="radio" name="sorting" value="eq1"> = <br>
-                            <input type="radio" name="sorting" value="gt1"> &gt';
-                        if($_GET['sorting'] == 'eq1')
-                            echo '<input type="radio" name="sorting" value="lt1"> &lt <br>
-                            <input type="radio" name="sorting" value="eq1" checked> = <br>
-                            <input type="radio" name="sorting" value="gt1"> &gt';
-                        if($_GET['sorting'] == 'gt1')
-                            echo '<input type="radio" name="sorting" value="lt1"> &lt <br>
-                            <input type="radio" name="sorting" value="eq1"> = <br>
-                            <input type="radio" name="sorting" value="gt1" checked> &gt';
+                    if(isset($_GET['sorting3'])){
+                        if($_GET['sorting3'] == 'lt')
+                            echo '<input type="radio" name="sorting3" value="lt" checked> &lt <br>
+                            <input type="radio" name="sorting3" value="eq"> = <br>
+                            <input type="radio" name="sorting3" value="gt"> &gt';
+                        if($_GET['sorting3'] == 'eq')
+                            echo '<input type="radio" name="sorting3" value="lt"> &lt <br>
+                            <input type="radio" name="sorting3" value="eq" checked> = <br>
+                            <input type="radio" name="sorting3" value="gt"> &gt';
+                        if($_GET['sorting3'] == 'gt')
+                            echo '<input type="radio" name="sorting3" value="lt"> &lt <br>
+                            <input type="radio" name="sorting3" value="eq"> = <br>
+                            <input type="radio" name="sorting3" value="gt" checked> &gt';
                     }
                     else
-                        echo '<input type="radio" name="sorting" value="lt1"> &lt <br>
-                                <input type="radio" name="sorting" value="eq1" checked> = <br>
-                                <input type="radio" name="sorting" value="gt1"> &gt';
+                        echo '<input type="radio" name="sorting3" value="lt"> &lt <br>
+                                <input type="radio" name="sorting3" value="eq" checked> = <br>
+                                <input type="radio" name="sorting3" value="gt"> &gt';
 
                 ?>
             </div>
@@ -113,24 +113,24 @@
                         echo '<input type="number" min="1" value="1" name="depth">';
                     }
                 
-                    if(isset($_GET['sorting'])){
-                        if($_GET['sorting1'] == 'lt2')
-                            echo '<input type="radio" name="sorting1" value="lt2" checked> &lt <br>
-                                <input type="radio" name="sorting1" value="eq2"> = <br>
-                                <input type="radio" name="sorting1" value="gt2"> &gt';
-                        if($_GET['sorting1'] == 'eq2')
-                            echo '<input type="radio" name="sorting1" value="lt2"> &lt <br>
-                                <input type="radio" name="sorting1" value="eq2" checked> = <br>
-                                <input type="radio" name="sorting1" value="gt2"> &gt';
-                        if($_GET['sorting1'] == 'gt2')
-                            echo '<input type="radio" name="sorting1" value="lt2"> &lt <br>
-                                <input type="radio" name="sorting1" value="eq2"> = <br>
-                                <input type="radio" name="sorting1" value="gt2" checked> &gt';
+                    if(isset($_GET['sorting4'])){
+                        if($_GET['sorting4'] == 'lt')
+                            echo '<input type="radio" name="sorting4" value="lt" checked> &lt <br>
+                                <input type="radio" name="sorting4" value="eq"> = <br>
+                                <input type="radio" name="sorting4" value="gt"> &gt';
+                        if($_GET['sorting4'] == 'eq')
+                            echo '<input type="radio" name="sorting4" value="lt"> &lt <br>
+                                <input type="radio" name="sorting4" value="eq" checked> = <br>
+                                <input type="radio" name="sorting4" value="gt"> &gt';
+                        if($_GET['sorting4'] == 'gt')
+                            echo '<input type="radio" name="sorting4" value="lt"> &lt <br>
+                                <input type="radio" name="sorting4" value="eq"> = <br>
+                                <input type="radio" name="sorting4" value="gt" checked> &gt';
                     }
                     else
-                        echo '<input type="radio" name="sorting1" value="lt2"> &lt <br>
-                            <input type="radio" name="sorting1" value="eq2" checked> = <br>
-                            <input type="radio" name="sorting1" value="gt2"> &gt';
+                        echo '<input type="radio" name="sorting4" value="lt"> &lt <br>
+                            <input type="radio" name="sorting4" value="eq" checked> = <br>
+                            <input type="radio" name="sorting4" value="gt"> &gt';
 
                  ?>
             </div>
