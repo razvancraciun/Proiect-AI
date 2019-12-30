@@ -9,7 +9,6 @@ function search() {
     $result = '';
     $resultFilenames = array();
     $it = new DirectoryIterator($DOCUMENT_DIR);
-    
     foreach($it as $file) {
 		if(!$file->isDot()) {
             $filename = $file->getFilename();
@@ -31,6 +30,11 @@ function search() {
 
             if(isset($_GET['f3']) && $_GET['f3']) {
                 $count = $_GET['count'];
+                $sorting = 0;
+                if($_GET['sorting'] == "lt1")
+                    $sorting = -1;
+                if($_GET['sorting'] == "gt1")
+                    $sorting = 1;
                 if(documentHasExactlyNElements($path, $count)) {
                     $result .= ' <div class="result"> <p>'.$filename.'</p> </div> ';
                 }
@@ -38,13 +42,18 @@ function search() {
 
             if(isset($_GET['f4']) && $_GET['f4']) {
                 $depth = $_GET['depth'];
+                $sorting = 0;
+                if($_GET['sorting1'] == "lt2")
+                    $sorting = -1;
+                if($_GET['sorting1'] == "gt2")
+                    $sorting = 1;
                 if(getXMLTreeDepth($path) == $depth) {
                     $result .= ' <div class="result"> <p>'.$filename.'</p> </div> ';
                 }
             }
 		}
 	}
-    
+    $result .= 'MAAAAI';
     return $result;
 }
 
