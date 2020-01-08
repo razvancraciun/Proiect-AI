@@ -5,7 +5,7 @@
     <title>AdNote</title>
     <meta charset="utf-8">
     <link href="reset.css" type="text/css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <link href="style.css" type="text/css" rel="stylesheet">
 </head>
 
@@ -13,9 +13,9 @@
     <aside>
         <form id="search-by-tag" method="GET" action="index.php">
             <div class="search-option">
-                <?php 
+                <?php
                     if(isset($_GET['f1']) && $_GET['f1']){
-                        echo '<input type="checkbox" id="f1" name="f1" checked>';    
+                        echo '<input type="checkbox" id="f1" name="f1" checked>';
                     }
                     else{
                         echo '<input type="checkbox" id="f1" name="f1">';
@@ -23,9 +23,9 @@
                 ?>
                 <label for="f1" class="klaus">Search by tag</label>
                 <div class=sep></div>
-                <?php 
+                <?php
                     if(isset($_GET['f1']) && $_GET['f1']){
-                        echo '<input type="text" placeholder=" <tag>" name="tag" value = "'.$_GET['tag'].'">';    
+                        echo '<input type="text" placeholder=" <tag>" name="tag" value = "'.$_GET['tag'].'">';
                     }
                     else{
                         echo '<input type="text" placeholder=" <tag>" name="tag">';
@@ -33,20 +33,20 @@
                 ?>
             </div>
             <div class="search-option">
-                <?php 
+                <?php
                     if(isset($_GET['f2']) && $_GET['f2']){
-                        echo '<input type="checkbox" id="f2" name="f2" checked>';    
+                        echo '<input type="checkbox" id="f2" name="f2" checked>';
                     }
                     else{
                         echo '<input type="checkbox" id="f2" name="f2">';
                     }
                 ?>
-                
+
                 <label for="f2" class="klaus">Search by inner tag</label>
                 <div class=sep></div>
-                <?php 
+                <?php
                     if(isset($_GET['f2']) && $_GET['f2']){
-                        echo '<input type="text" placeholder=" <parent>" name="parent" value = "'.$_GET['parent'].'"><input type="text" placeholder=" <child>" name="child" value = "'.$_GET['child'].'">';    
+                        echo '<input type="text" placeholder=" <parent>" name="parent" value = "'.$_GET['parent'].'"><input type="text" placeholder=" <child>" name="child" value = "'.$_GET['child'].'">';
                     }
                     else{
                         echo '<input type="text" placeholder=" <parent>" name="parent"> <input type="text" placeholder=" <child>" name="child">';
@@ -72,7 +72,7 @@
                     else{
                         echo '<input type="number" min="1" max="1000" value="1" name="count">';
                     }
-                
+
                     if(isset($_GET['sorting3'])){
                         if($_GET['sorting3'] == 'lt')
                             echo '<input type="radio" name="sorting3" value="lt" checked> &lt <br>
@@ -112,7 +112,7 @@
                     else{
                         echo '<input type="number" min="1" value="1" name="depth">';
                     }
-                
+
                     if(isset($_GET['sorting4'])){
                         if($_GET['sorting4'] == 'lt')
                             echo '<input type="radio" name="sorting4" value="lt" checked> &lt <br>
@@ -135,13 +135,17 @@
                  ?>
             </div>
             <input type="submit" value="Search">
-            
+
         </form>
         <form action="upload.php" method="post" enctype="multipart/form-data">
             Select document to upload:
             <input type="file" name="fileToUpload" id="fileToUpload">
             <input type="submit" value="Upload XML" name="submit">
         </form>
+        <?php
+          if(isset($_GET['uploadResult']) && $_GET['uploadResult'] != '') {
+            echo '<div class="uploadResult"> <p>'.$_GET['uploadResult'].'</p></div>';
+        }?>
     </aside>
     <main>
         <?php
@@ -150,7 +154,7 @@
         <!-- Template
         <div class="result">
             <p>[file name goes here]</p>
-        </div> 
+        </div>
         -->
     </main>
     <footer>
