@@ -50,7 +50,7 @@ function search() {
     
     $resultFilenames = array_unique($resultFilenames);
     foreach($resultFilenames as $filename) {
-        $result .= ' <div class="result"> <p>'.$filename.'</p> </div> ';
+        $result .= '<a href= "data\\'.$filename.'"><div class="result"><p>'.$filename.'</p></div></a> ';
     }
     
     return $result;

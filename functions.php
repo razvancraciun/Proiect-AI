@@ -3,9 +3,16 @@
 function documentContainsSpecifiedTag($filename, $tag) {
 	$document = new DomDocument;	
 	$document->load($filename);
-
-	$elements = $document->getElementsByTagName($tag);
+	$elements = $document->getElementsByTagName(strtoupper($tag));
+    $elements1 = $document->getElementsByTagName(strtolower($tag));
+    $elements2 = $document->getElementsByTagName($tag);
 	if( $elements->length > 0 ) {
+		return true;
+	}
+    if( $elements1->length > 0 ) {
+		return true;
+	}
+    if( $elements2->length > 0 ) {
 		return true;
 	}
 	return false;
@@ -37,7 +44,7 @@ function getXMLTreeDepth($filename) {
 	    $nodeDepth = count($xpath) - 1;
 	    $treeDepth = max($treeDepth, $nodeDepth);
 	}
-	return $treeDepth;
+	return $treeDepth - 1;
 }
 
 function documentHasNElements($filename, $n, $op) {

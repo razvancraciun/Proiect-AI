@@ -107,10 +107,10 @@
                 <div class=sep></div>
                 <?php
                     if(isset($_GET['f4']) && $_GET['f4']){
-                        echo '<input type="number" min="1" value="'.$_GET['depth'].'" name="depth">';
+                        echo '<input type="number" min="0" value="'.$_GET['depth'].'" name="depth">';
                     }
                     else{
-                        echo '<input type="number" min="1" value="1" name="depth">';
+                        echo '<input type="number" min="0" value="1" name="depth">';
                     }
 
                     if(isset($_GET['sorting4'])){
