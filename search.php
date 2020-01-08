@@ -24,7 +24,7 @@ function search() {
             if(isset($_GET['f2']) && $_GET['f2']) {
                 $parent = $_GET['parent'];
                 $child = $_GET['child'];
-                if(documentContainsWord1UnderWord2($path, $child, $parent)) {
+                if(documentContainsWord1UnderWord2($path, $child, $parent) or documentContainsWord1UnderWord2($path, strtoupper($child),strtoupper($parent)) or documentContainsWord1UnderWord2($path, strtolower($child), strtolower($parent)) or documentContainsWord1UnderWord2($path, strtoupper($child), strtolower($parent)) or documentContainsWord1UnderWord2($path,strtolower($child), strtoupper($parent))) {
                     $resultFilenames[] = $filename;
                 }
             }
