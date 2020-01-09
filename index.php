@@ -149,7 +149,12 @@
     </aside>
     <main>
         <?php
-            echo search();
+            if(search() == ''){
+                echo '<p><font color="white">Nu exista rezultate</font></p>';
+            }
+            else{
+                echo search();    
+            }
         ?>
         <!-- Template
         <div class="result">
