@@ -1,4 +1,15 @@
 <?php
+
+
+function checkXml($filename) {
+    libxml_use_internal_errors(true);
+    $document = new DomDocument;    
+    $document->load($filename);
+    $errors = libxml_get_errors();
+    libxml_clear_errors(); 
+    return count($errors);
+}
+
 $target_dir = "data/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
@@ -16,6 +27,10 @@ if($fil != "xml") {
     $uploadOk = 0;
 }
 
+if(checkXml($_FILES["fileToUpload"]["tmp_name"]) != 0) {
+    $status = "The file does not contain valid xml.";
+    $uploadOk = 0;
+}
 
 if ($uploadOk == 0) {
     $_REQUEST['uploadError'] = "Sorry, only XML.";
