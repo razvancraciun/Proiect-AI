@@ -22,19 +22,21 @@ if (file_exists($target_file)) {
     $uploadOk = 0;
 }
 
+if ($uploadOk == 1)
 if($fil != "xml") {
-    $status = "Sorry, only XML.";
+    $status = "Sorry, only XML files.";
     $uploadOk = 0;
 }
 
-if(checkXml($_FILES["fileToUpload"]["tmp_name"]) != 0) {
+if ($uploadOk == 1)
+	if(checkXml($_FILES["fileToUpload"]["tmp_name"]) != 0) {
     $status = "The file does not contain valid xml.";
     $uploadOk = 0;
 }
 
 if ($uploadOk == 0) {
     $_REQUEST['uploadError'] = "Sorry, only XML.";
-    $status = "Sorry, your file was not uploaded.";
+    #$status = "Sorry, your file was not uploaded.";
 
 } else {
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
