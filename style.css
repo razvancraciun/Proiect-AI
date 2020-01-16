@@ -22,7 +22,7 @@ aside {
 
 main {
     display: flex;
-    background: radial-gradient(ellipse at center, rgba(48,201,51,1) 0%, rgba(111,130,0,1) 100%);
+    background: radial-gradient(ellipse at center, rgba(171,171,171,1) 0%, rgba(74,74,74,1) 100%);
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
